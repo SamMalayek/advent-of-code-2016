@@ -2,7 +2,7 @@ import re
 
 
 def main():
-	raw = open('input.txt', 'r').read().rstrip()
+	raw = open('day09.txt', 'r').read().rstrip()
 
 	def recurse(cur):
 		resp = ''

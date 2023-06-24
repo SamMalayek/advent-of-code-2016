@@ -2,7 +2,7 @@ from collections import defaultdict
 import math
 
 def main():
-	cmds = open('input.txt', 'r').read().splitlines()
+	cmds = open('day10.txt', 'r').read().splitlines()
 	bots = defaultdict(list)  # bot -> [lowVal, highVal]
 	dag = defaultdict(list)  # bot -> lowBot, highBot
 

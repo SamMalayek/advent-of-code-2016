@@ -2,8 +2,9 @@ from collections import Counter
 
 
 def main():
-	raw = open('input.txt', 'r').read().splitlines()
+	raw = open('day04.txt', 'r').read().splitlines()
 
+	resp = 0
 	for line in raw:
 		name, checksum = line.split('[')
 		sector = int(name[-3:])
@@ -17,12 +18,9 @@ def main():
 				break
 
 		if good:
-			res = ''
-			for c in name:
-				o = (ord(c) - 97 + sector) % 26
-				res += chr(o + 97)
-			if 'northpole' in res:
-				print(sector)
+			resp += sector
+
+	print(resp)
 
 
 if __name__ == "__main__":

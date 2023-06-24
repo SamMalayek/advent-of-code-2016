@@ -1,5 +1,5 @@
 def main():
-	raw = open('input.txt', 'r').read().splitlines()
+	raw = open('day03.txt', 'r').read().splitlines()
 
 	parsed = [list(map(int, line.split())) for line in raw]
 

@@ -1,5 +1,5 @@
 def main():
-	raw = open('input.txt', 'r').read().splitlines()
+	raw = open('day02.txt', 'r').read().splitlines()
 
 	keypad = [
 		['!', '!', '1', '!', '!'],

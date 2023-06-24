@@ -2,7 +2,7 @@ from collections import Counter
 
 
 def main():
-	raw = open('input.txt', 'r').read().splitlines()
+	raw = open('day06.txt', 'r').read().splitlines()
 
 	resp = ''
 
@@ -11,7 +11,7 @@ def main():
 		for j in range(len(raw)):
 			cur = raw[j][i]
 			counter[cur] += 1
-		resp += counter.most_common()[0][0]
+		resp += counter.most_common()[-1][0]
 
 	print(resp)
 

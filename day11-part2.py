@@ -8,7 +8,7 @@ class Uncomparable: # Uncomparable is to stop heapq.heappop from comparing eleme
         return False
 
 def main():
-	lines = open('input.txt', 'r').read().splitlines()
+	lines = open('day11.txt', 'r').read().splitlines()
 	floors = [[] for _ in range(4)]  # floor 1 = index 0, floor 4 = index 3
 	totalItems = 0
 	movedDown = {}  # Heuristic to prevent moving items down floors too much unnecessarily
@@ -50,7 +50,7 @@ def main():
 		curHash = (hashCurFloors(curFloors), elevatorFloor)
 		if curHash in memo:
 			continue
-		memo[curHash] = steps
+		memo[curHash] = True
 		# Base case
 		if len(curFloors[-1]) == totalItems:
 			resp = min(resp, steps)

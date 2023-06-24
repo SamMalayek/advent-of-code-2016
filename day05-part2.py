@@ -2,7 +2,7 @@ from hashlib import md5
 
 
 def main():
-	puzzleInput = open('input.txt', 'r').read().rstrip()
+	puzzleInput = open('day05.txt', 'r').read().rstrip()
 
 	i = 0
 	resp = [0 for _ in range(8)]

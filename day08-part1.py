@@ -2,7 +2,7 @@ import re
 
 
 def main():
-	raw = open('input.txt', 'r').read().splitlines()
+	raw = open('day08.txt', 'r').read().splitlines()
 
 	cmds = []
 	for line in raw:

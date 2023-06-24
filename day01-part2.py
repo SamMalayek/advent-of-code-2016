@@ -1,5 +1,5 @@
 def main():
-	raw = open('input.txt', 'r').read().rstrip()
+	raw = open('day01.txt', 'r').read().rstrip()
 
 	curDir = {  # x, y
 		'D': (0, -1),

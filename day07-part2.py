@@ -8,7 +8,7 @@ def followsPattern(string, isAba, seen):
 
 
 def main():
-	raw = open('input.txt', 'r').read().splitlines()
+	raw = open('day07.txt', 'r').read().splitlines()
 
 	resp = 0
 	for address in raw:
