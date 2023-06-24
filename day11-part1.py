@@ -12,7 +12,6 @@ def main():
 	floors = [[] for _ in range(4)]  # floor 1 = index 0, floor 4 = index 3
 	totalItems = 0
 	movedDown = {}  # Heuristic to prevent moving items down floors too much unnecessarily
-	resp = 9999999999
 	memo = {}
 
 	def calcFScore(curFloors, steps=0):  # A* heuristic
@@ -50,8 +49,8 @@ def main():
 		memo[curHash] = True
 		# Base case
 		if len(curFloors[-1]) == totalItems:
-			resp = min(resp, steps)
-			continue
+			print(steps)
+			quit()
 
 		if elevatorFloor < 3:  # Can move up
 			# Move up with 1 item
@@ -117,7 +116,6 @@ def main():
 					curFScore = calcFScore(newCurFloors, steps+1)
 					heapq.heappush(argsHeap, (curFScore, Uncomparable(), newCurFloors, elevatorFloor-1, steps + 1, dict(curMovedDown)))
 
-	print(resp)
 
 if __name__ == "__main__":
 	main()
