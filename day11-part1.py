@@ -47,7 +47,7 @@ def main():
 		if curHash in memo:
 			continue
 		memo[curHash] = True
-		# Base case
+		# Found optimal path
 		if len(curFloors[-1]) == totalItems:
 			print(steps)
 			quit()
