@@ -14,7 +14,8 @@ def main():
 	movedDown = {}  # Heuristic to prevent moving items down floors too much unnecessarily
 	memo = {}
 
-	def calcFScore(curFloors, steps=0):  # A* heuristic
+	# A* hybrid-heuristic (cost=steps, estimate=total number of estimated elevator steps to move all items to top floor)
+	def calcFScore(curFloors, steps=0):
 		return len(curFloors[2]) + len(curFloors[1]) * 1.5 + len(curFloors[0]) * 2 + steps
 
 	def hashCurFloors(curFloors):
