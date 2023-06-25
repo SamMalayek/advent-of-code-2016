@@ -14,7 +14,7 @@ def main():
 	movedDown = {}  # Used for heuristic: it's unlikely that an item needs to move down twice in a row in optimal path.
 	memo = {}
 
-	# A* hybrid-heuristic -> cost=steps so far + heuristic=minimum distance to move items to top floor (aka estimate).
+	# A* hybrid-heuristic -> cost=steps so far + heuristic=min dist to move items to top floor (aka optimistic estimate).
 	def calcFScore(curFloors, steps=0):
 		return len(curFloors[2]) * 0.5 + len(curFloors[1]) + len(curFloors[0]) * 1.5 + steps
 
