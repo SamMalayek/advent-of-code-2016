@@ -16,7 +16,7 @@ def main():
 
 	# A* hybrid-heuristic (cost=steps, estimate=total number of estimated elevator steps to move all items to top floor)
 	def calcFScore(curFloors, steps=0):
-		return len(curFloors[2]) + len(curFloors[1]) * 1.5 + len(curFloors[0]) * 2 + steps
+		return len(curFloors[2]) * 0.5 + len(curFloors[1]) + len(curFloors[0]) * 1.5 + steps
 
 	def hashCurFloors(curFloors):
 		return tuple(tuple(sorted(floor)) for floor in curFloors)
