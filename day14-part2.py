@@ -5,7 +5,8 @@ from itertools import groupby
 
 def main():
 	puzzleInput = open('day14.txt', 'r').read().rstrip()
-	triples = defaultdict(list)  # key: single digit representing triples, value: list of indexes
+	# key: single digit representing triples, value: list of indexes. queue would be more space efficient
+	triples = defaultdict(list)
 
 	i = 0
 	keys = set()
