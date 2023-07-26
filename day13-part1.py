@@ -22,7 +22,7 @@ def main():
 		ones = format(x*x + 3*x + 2*x*y + y + y*y + puzzleInput, 'b').count('1')
 		return ones % 2 == 1
 
-	def getEuclDist(x1, x2, y1, y2):
+	def getEuclDist(x1, x2, y1, y2):  # Manhattan distance would be more optimal given problem constraints
 		return math.sqrt((x1 - x2)**2 + (y1 - y2)**2)
 
 	def getFScore(x, y, cost=0):
