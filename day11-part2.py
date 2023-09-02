@@ -23,8 +23,8 @@ def main():
 		return tuple(tuple(sorted(floor)) for floor in curFloors)
 
 	def floorFails(curFloor):  # Validates that the floor adheres to the radiation rules
-		curFloorMs = set([c[0] for c in curFloor if c[1] == 'm'])
-		curFloorGs = set([c[0] for c in curFloor if c[1] == 'g'])
+		curFloorMs = set([fW for fW, sW in curFloor if sW == 'm'])
+		curFloorGs = set([fW for fW, sW in curFloor if sW == 'g'])
 		noPairMs = curFloorMs - curFloorGs
 
 		if noPairMs and curFloorGs:
@@ -35,11 +35,12 @@ def main():
 		parts = list(filter(None, re.split(' a | and', line)))[1:]
 		for part in parts:
 			firstWord, secondWord = part.split(' ')
-			floors[i].append(firstWord[0]+secondWord[0])
+			firstWord1, secondWord1 = firstWord.split('-')[0], secondWord[0]
+			floors[i].append((firstWord1, secondWord1))
 			totalItems += 1
-			movedDown[firstWord[0]+secondWord[0]] = 0
+			movedDown[(firstWord1, secondWord1)] = 0
 
-	floors[0].extend(['eg', 'em', 'dg', 'dm'])
+	floors[0].extend([('elerium', 'g'), ('elerium', 'm'), ('dilithium', 'g'), ('dilithium', 'm')])
 	totalItems += 4
 
 	startFScore = calcFScore(floors)

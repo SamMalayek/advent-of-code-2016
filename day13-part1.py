@@ -13,7 +13,7 @@ class Uncomparable:
 
 def main():
 	puzzleInput = int(open('day13.txt', 'r').read().rstrip())
-	print(puzzleInput)
+
 	goal = (31, 39)
 	seen = set([(1, 1)])
 	dirOffsets = [(1, 0), (0, 1), (-1, 0), (0, -1)]
