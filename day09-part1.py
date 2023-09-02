@@ -8,6 +8,9 @@ def main():
 	curRaw = raw
 	curMarker = list(filter(None, re.split('\)|\(|x', curRaw, maxsplit=3)))
 	while curMarker:
+		if len(curMarker) > 3 and not curMarker[0].isnumeric():
+			resp += curMarker[0]
+			curMarker = curMarker[1:]
 		if len(curMarker) > 2:
 			curLen = int(curMarker[0])
 			curMulti = int(curMarker[1])
