@@ -11,7 +11,7 @@ def main():
 	i = 0
 	keys = set()
 
-	while len(keys) < 64:
+	while len(keys) < 80:
 		curPreHash = puzzleInput + str(i)
 		curHash = curPreHash
 		for j in range(2017):
