@@ -16,6 +16,9 @@ def main():
 			curMulti = int(curMarker[1])
 			resp += curMarker[2][:curLen] * curMulti
 			curMarker = curMarker[2][curLen:]
+		if len(curMarker) == 1:
+			resp += curMarker[0]
+			break
 
 		curMarker = list(filter(None, re.split('\)|\(|x', curMarker, maxsplit=3)))
 
