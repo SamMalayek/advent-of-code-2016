@@ -17,11 +17,11 @@ def main():
             curCell = '.'
             if left == '^' and center == '^' and right == '.':
                 curCell = '^'
-            elif center == '^' and right == '^' and left == '.':
+            elif left == '.' and center == '^' and right == '^':
                 curCell = '^'
             elif left == '^' and center == '.' and right == '.':
                 curCell = '^'
-            elif right == '^' and center == '.' and left == '.':
+            elif left == '.' and center == '.' and right == '^':
                 curCell = '^'
 
             newRow[j] = curCell

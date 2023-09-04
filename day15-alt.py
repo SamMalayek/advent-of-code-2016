@@ -1,5 +1,6 @@
 from re import split
 
+
 class Disc:
     def __init__(self, numPositions, curPosition):
         self.curTime = 0
@@ -24,6 +25,7 @@ def main():
             if (disc.curPosition + i + 1) % disc.numPositions != 0:
                 isPathClear = False
     print(discs[0].curTime)
+
 
 if __name__ == "__main__":
     main()
