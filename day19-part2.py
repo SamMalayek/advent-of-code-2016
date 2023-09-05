@@ -4,7 +4,7 @@ def main():
 
     # Implementing a Linked List in Python would be faster in theory, but is much slower in practice.
     # This is likely due to the underlying C implementation and its optimizations. And it's why the
-    # best of the best use C++
+    # best of the best use C++ in this niche sub-field of software engineering.
     elvesToPresents = {num+1: 1 for num in range(numElves)}  # numElf -> numPresents
     elvesPlacement = [num+1 for num in range(numElves)]  # index (placement at table) -> numElf
 
