@@ -6,7 +6,6 @@ def main():
 
     for line in raw:
         ips.append(list(map(int, line.split('-'))))
-
     ips.sort()
 
     i = 0
