@@ -2,7 +2,8 @@
 def main():
     numElves = int(open('day19.txt', 'r').read().rstrip())
 
-    # Linked List would be faster. This is more concise. List pops makes this fairly slow.
+    # Implementing a Linked List in Python would be faster in theory, but is much slower in practice.
+    # This is likely due to the underlying C implementation and its optimizations.
     elvesToPresents = {num+1: 1 for num in range(numElves)}  # numElf -> numPresents
     elvesPlacement = [num+1 for num in range(numElves)]  # index (placement at table) -> numElf
 
