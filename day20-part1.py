@@ -20,7 +20,7 @@ def main():
     if ips[0][0] == 0:
         print(ips[0][1]+1)
     else:
-        print(ips[0][0]-1)
+        print(0)
 
 
 if __name__ == "__main__":
