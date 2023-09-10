@@ -30,7 +30,6 @@ def main():
         curPos, pathToCur = q.popleft()
 
         if curPos == (3, 3):
-            print(len(pathToCur))
             print(''.join(pathToCur))
             exit()
 

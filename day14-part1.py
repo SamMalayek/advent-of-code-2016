@@ -11,7 +11,7 @@ def main():
 	i = 0
 	keys = set()
 
-	while len(keys) < 64:
+	while len(keys) < 99:
 		curPreHash = puzzleInput + str(i)
 		curHash = md5(curPreHash.encode('utf-8')).hexdigest()
 

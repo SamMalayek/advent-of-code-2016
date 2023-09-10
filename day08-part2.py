@@ -38,10 +38,9 @@ def main():
 				for col in range(len(rect[0])):
 					rect[targetRow][col] = newRow[col]
 
-	resp = 0
 	for row in rect:
-		resp += ''.join(row).count('#')
-	print(resp)
+		print(''.join(row))
+	print(' ')
 
 
 if __name__ == "__main__":
