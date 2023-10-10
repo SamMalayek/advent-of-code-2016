@@ -12,6 +12,8 @@ class Node:
 # We'll move data from the Source node (node in front of Goal node) to Sink node.
 # Each "move", we'll identify a Source and Sink node, unless we can move the
 # Goal node forward.
+# Note: I prefer to break code into functions only if it reduces repetition, otherwise I prefer
+# to use comments to break up code.
 def main():
     raw = open('day22.txt', 'r').read().splitlines()
     dirs = [(0, 1), (1, 0), (-1, 0), (0, -1)]
@@ -21,7 +23,7 @@ def main():
     immovableNodes = set()
 
     # We'll maintain a sorted list of nodes (sorted by available capacity) to identify
-    # the Sink node.
+    # the Sink node. This assumes there's only one Sink node in the grid.
     nodesSortedAvailCapacity = []
 
     for line in raw[2:]:
@@ -79,10 +81,10 @@ def main():
                 nextX, nextY = xOffset+ccurNodeX, yOffset+ccurNodeY
                 # Next node must be:
                 # - within grid
+                # - not the current Goal node
                 # - not previously seen in this BFS search
                 # - not an "immovable node" (very large amount of data)
-                # - not the current Goal node
-                if 0 <= nextX <= maxX and 0 <= nextY <= maxY and (nextX, nextY) not in seen and (nextX, nextY) not in immovableNodes and (nextX, nextY) != (curNodeX, curNodeY):
+                if 0 <= nextX <= maxX and 0 <= nextY <= maxY and (nextX, nextY) != (curNodeX, curNodeY) and (nextX, nextY) not in seen.union(immovableNodes):
                     seen.add((nextX, nextY))
                     nextPath = list(curPath)
                     nextPath.append((nextX, nextY))
