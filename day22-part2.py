@@ -90,6 +90,9 @@ def main():
                     nextPath.append((nextX, nextY))
                     q.append([(nextX, nextY), nextPath])
 
+        if len(path) < 2:
+            raise AssertionError("Length of `path` should be > 1.")
+
         nodes[path[0]].avail += goalDataVol
         nodes[path[0]].used -= goalDataVol
         nodes[path[-1]].avail -= goalDataVol
