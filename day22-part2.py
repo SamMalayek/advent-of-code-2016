@@ -93,6 +93,7 @@ def main():
         if len(path) < 2:
             raise AssertionError("Length of `path` should be > 1.")
 
+        # This inplementation below focuses on performance of overall algo with regards to the desired output according to the problem statement.
         nodes[path[0]].avail += goalDataVol
         nodes[path[0]].used -= goalDataVol
         nodes[path[-1]].avail -= goalDataVol
