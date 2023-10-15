@@ -42,6 +42,13 @@ def main():
                 register[parts[2]] = int(parts[1])
             else:
                 register[parts[2]] = register[parts[1]]
+        elif cmd == 'inc':
+            register[parts[1]] += 1
+        elif cmd == 'dec':
+            register[parts[1]] -= 1
+        elif cmd == 'tgl':
+            numberOfToggles += 1
+            toggleIndexes[i+register[parts[1]]] = True
         elif cmd == 'jnz':  # num, registerNum
             val1 = int(parts[1]) if isDigit(parts[1]) else register[parts[1]]
             val2 = int(parts[2]) if isDigit(parts[2]) else register[parts[2]]
@@ -68,13 +75,6 @@ def main():
                 jumpStates[i] = (register['a'], register['b'], register['c'], register['d'], numberOfToggles)
                 i += 1
                 continue
-        if cmd == 'inc':
-            register[parts[1]] += 1
-        elif cmd == 'dec':
-            register[parts[1]] -= 1
-        elif cmd == 'tgl':
-            numberOfToggles += 1
-            toggleIndexes[i+register[parts[1]]] = True
 
         i += 1
 
