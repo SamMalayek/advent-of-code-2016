@@ -43,7 +43,8 @@ def main():
                 else:
                     register[parts[2]] = register[parts[1]]
             elif cmd == 'jnz':  # num, registerNum
-                # We're going to mutate the input array, replacing the iteration with addition/multiplication. TODO: can be improved by handling nested jumps
+                # We're going to mutate the input array, replacing the iteration with addition/multiplication. 
+                # NOTE: can be improved by handling nested jumps ->> releasing tomorrow.
                 if isDigit(parts[2]) and int(parts[2]) < 0:
                     targetRegKey = parts[1]
                     lookBack = int(parts[2])
