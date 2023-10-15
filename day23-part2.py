@@ -1,4 +1,5 @@
 
+# NOTE: This solution still needs more work to work with all possible inputs. But it is fast.
 def main():
     raw = open('day23.txt', 'r').read().splitlines()
     toggleIndexes = {}  # line number (indexed at 0) -> bool
