@@ -51,7 +51,7 @@ def main():
                     seen.add((nextRow, nextCol))
                     q.append((dist+1, nextRow, nextCol))
 
-    # TODO: Use Bellman-Held-Karp
+    # Could use Bellman-Held-Karp
     # Currently using O(N!) brute force. Perfectly fine for this input size.
     minDist = 9999999999
     for perm in permutations(range(1, 8)):
