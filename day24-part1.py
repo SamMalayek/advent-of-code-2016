@@ -8,7 +8,7 @@ def main():
     dirs = [(0, 1), (1, 0), (-1, 0), (0, -1)]
 
     # NxN matrix of distMatrix between each node
-    distMatrix = [[99999 for _ in range(8)] for _ in range(8)]  # First and last will be empty
+    distMatrix = [[99999 for _ in range(8)] for _ in range(8)]
     targets = {}
     targetsRev = {}
 
@@ -66,19 +66,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
