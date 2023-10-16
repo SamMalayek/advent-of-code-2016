@@ -16,7 +16,6 @@ def main():
     jumpStates = {}
     register = {'a': 12, 'b': 0, 'c': 0, 'd': 0}
 
-
     def isDigit(n):
         try:
             int(n)

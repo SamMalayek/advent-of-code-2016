@@ -13,7 +13,6 @@ def main():
     targets = {}
     targetsRev = {}
 
-
     # Collect all targets
     seen = set()
     q = deque([(1, 1)])
@@ -28,7 +27,7 @@ def main():
             nextRow = rowOffset+row
             nextCol = colOffset+col
 
-            if 0<nextRow<len(grid)-1 and 0<nextCol<len(grid[0])-1 and grid[nextRow][nextCol] != '#' and (nextRow, nextCol) not in seen:
+            if grid[nextRow][nextCol] != '#' and (nextRow, nextCol) not in seen:
                 seen.add((nextRow, nextCol))
                 q.append((nextRow, nextCol))
 
@@ -49,7 +48,7 @@ def main():
                 nextRow = rowOffset+row
                 nextCol = colOffset+col
 
-                if 0<nextRow<len(grid)-1 and 0<nextCol<len(grid[0])-1 and grid[nextRow][nextCol] != '#' and (nextRow, nextCol) not in seen:
+                if grid[nextRow][nextCol] != '#' and (nextRow, nextCol) not in seen:
                     seen.add((nextRow, nextCol))
                     q.append((dist+1, nextRow, nextCol))
 
