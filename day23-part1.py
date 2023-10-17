@@ -29,30 +29,29 @@ def main():
     while i < len(raw):
         parts = raw[i].split()
         cmd = toggle(i, parts[0])
-        if len(parts) > 2:
-            if cmd == 'cpy':  # num, registerNum
-                if isDigit(parts[2]):
-                    i += 1
-                    continue
-                if isDigit(parts[1]):
-                    register[parts[2]] = int(parts[1])
-                else:
-                    register[parts[2]] = register[parts[1]]
-            elif cmd == 'jnz':  # num, registerNum
-                if (isDigit(parts[1]) and int(parts[1]) != 0) or register[parts[1]] != 0:
-                    i += (int(parts[2]) if isDigit(parts[2]) else register[parts[2]])
-                    continue
-                else:
-                    i += 1
-                    continue
-
-        else:
-            if cmd == 'inc':
-                register[parts[1]] += 1
-            elif cmd == 'dec':
-                register[parts[1]] -= 1
-            elif cmd == 'tgl':
-                toggleIndexes[i+int(register[parts[1]])] = True
+        if cmd == 'cpy':  # num, registerNum
+            if isDigit(parts[2]):
+                i += 1
+                continue
+            if isDigit(parts[1]):
+                register[parts[2]] = int(parts[1])
+            else:
+                register[parts[2]] = register[parts[1]]
+        elif cmd == 'jnz':  # num, registerNum
+            val1 = int(parts[1]) if isDigit(parts[1]) else register[parts[1]]
+            val2 = int(parts[2]) if isDigit(parts[2]) else register[parts[2]]
+            if val1 != 0:
+                i += val2
+                continue
+            else:
+                i += 1
+                continue
+        elif cmd == 'inc':
+            register[parts[1]] += 1
+        elif cmd == 'dec':
+            register[parts[1]] -= 1
+        elif cmd == 'tgl':
+            toggleIndexes[i+int(register[parts[1]])] = True
 
         i += 1
 
