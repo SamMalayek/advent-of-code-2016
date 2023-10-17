@@ -15,6 +15,9 @@ def main():
         # default 2: jnz
     }
 
+    def extractVal(v, reg):
+        return int(v) if isDigit(v) else reg[v]
+
     def isDigit(n):
         try:
             int(n)
@@ -52,17 +55,17 @@ def main():
                 if isDigit(parts[2]):
                     i += 1
                     continue
-                register[parts[2]] = int(parts[1]) if isDigit(parts[1]) else register[parts[1]]
+                register[parts[2]] = extractVal(parts[1], register)
             elif cmd == 'out':
-                val1 = int(parts[1]) if isDigit(parts[1]) else register[parts[1]]
+                val1 = extractVal(parts[1], register)
                 try:
                     outRespExpectation, outRespCount = handleOutResp(outRespExpectation, outRespCount, val1, j)
                 except AocException:
                     j += 1
                     break
             elif cmd == 'jnz':  # num, registerNum
-                val1 = int(parts[1]) if isDigit(parts[1]) else register[parts[1]]
-                val2 = int(parts[2]) if isDigit(parts[2]) else register[parts[2]]
+                val1 = extractVal(parts[1], register)
+                val2 = extractVal(parts[2], register)
                 if val1 != 0:
                     i += val2
                     continue

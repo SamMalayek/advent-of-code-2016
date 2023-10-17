@@ -13,7 +13,10 @@ def main():
     }
     register = {'a': 7}
 
-    def isDigit(n):
+    def extractVal(v):
+        return int(v) if isDigit(v) else register[v]
+
+    def isDigit(n):  # This handles negative numbers in strings, like "-3" that isnumeric() doesn't handle.
         try:
             int(n)
             return True
@@ -33,10 +36,10 @@ def main():
             if isDigit(parts[2]):
                 i += 1
                 continue
-            register[parts[2]] = int(parts[1]) if isDigit(parts[1]) else register[parts[1]]
+            register[parts[2]] = extractVal(parts[1])
         elif cmd == 'jnz':  # num, registerNum
-            val1 = int(parts[1]) if isDigit(parts[1]) else register[parts[1]]
-            val2 = int(parts[2]) if isDigit(parts[2]) else register[parts[2]]
+            val1 = extractVal(parts[1])
+            val2 = extractVal(parts[2])
             if val1 != 0:
                 i += val2
                 continue
