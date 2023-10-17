@@ -5,6 +5,7 @@ class Node:
         self.used = used  # in Terabytes
         self.avail = avail
 
+
 def main():
     raw = open('day22.txt', 'r').read().splitlines()
 

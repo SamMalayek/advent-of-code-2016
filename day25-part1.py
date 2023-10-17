@@ -52,10 +52,7 @@ def main():
                 if isDigit(parts[2]):
                     i += 1
                     continue
-                if isDigit(parts[1]):
-                    register[parts[2]] = int(parts[1])
-                else:
-                    register[parts[2]] = register[parts[1]]
+                register[parts[2]] = int(parts[1]) if isDigit(parts[1]) else register[parts[1]]
             elif cmd == 'out':
                 val1 = int(parts[1]) if isDigit(parts[1]) else register[parts[1]]
                 try:
