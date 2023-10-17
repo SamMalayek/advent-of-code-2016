@@ -31,8 +31,7 @@ def main():
     i = 0
     while i < len(raw):
         parts = raw[i].split()
-        cmd = parts[0]
-        cmd = toggle(i, cmd)
+        cmd = toggle(i, parts[0])
         if cmd == 'cpy':  # num, registerNum
             if isDigit(parts[2]):
                 i += 1
