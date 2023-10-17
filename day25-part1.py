@@ -42,7 +42,7 @@ def main():
         register = {'a': j, 'b': 0, 'c': 0, 'd': 0}
         outRespExpectation = 0
         outRespCount = 0
-        toggleIndexes = {}  # line number (indexed at 0) -> num toggles
+        toggleIndexes = {}  # line number (indexed at 0) -> bool
         i = 0
         while i < len(raw):
             parts = raw[i].split()
@@ -76,10 +76,7 @@ def main():
             elif cmd == 'dec':
                 register[parts[1]] -= 1
             elif cmd == 'tgl':
-                if i+int(register[parts[1]]) in toggleIndexes:
-                    toggleIndexes[i+int(register[parts[1]])] += 1
-                else:
-                    toggleIndexes[i+int(register[parts[1]])] = 1
+                toggleIndexes[i+int(register[parts[1]])] = True
 
             i += 1
 

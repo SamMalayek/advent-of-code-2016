@@ -1,7 +1,7 @@
 
 def main():
     raw = open('day23.txt', 'r').read().splitlines()
-    toggleIndexes = {}  # line number (indexed at 0) -> num toggles
+    toggleIndexes = {}  # line number (indexed at 0) -> bool
     toggles = {
         'inc': 'dec',
         'dec': 'inc',
@@ -52,10 +52,7 @@ def main():
             elif cmd == 'dec':
                 register[parts[1]] -= 1
             elif cmd == 'tgl':
-                if i+int(register[parts[1]]) in toggleIndexes:
-                    toggleIndexes[i+int(register[parts[1]])] += 1
-                else:
-                    toggleIndexes[i+int(register[parts[1]])] = 1
+                toggleIndexes[i+int(register[parts[1]])] = True
 
         i += 1
 
