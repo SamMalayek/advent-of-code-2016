@@ -39,10 +39,8 @@ def main():
         parts = raw[i].split()
         cmd = toggle(i, parts[0])
         if cmd == 'cpy':  # num, registerNum
-            if isDigit(parts[2]):
-                i += 1
-                continue
-            register[parts[2]] = extractVal(parts[1])
+            if not isDigit(parts[2]):
+                register[parts[2]] = extractVal(parts[1])
         elif cmd == 'inc':
             register[parts[1]] += 1
         elif cmd == 'dec':
@@ -66,16 +64,12 @@ def main():
                     register['c'] += (register['c'] - cc)*numIterations
                     register['d'] += (register['d'] - dd)*numIterations
                     jumpStates[i] = getJumpStates(-1)
-                    i += 1
-                    continue
             elif val1 != 0:
                 jumpStates[i] = getJumpStates(numberOfToggles)
                 i += val2
                 continue
             else:
                 jumpStates[i] = getJumpStates(numberOfToggles)
-                i += 1
-                continue
 
         i += 1
 

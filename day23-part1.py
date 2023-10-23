@@ -33,18 +33,11 @@ def main():
         parts = raw[i].split()
         cmd = toggle(i, parts[0])
         if cmd == 'cpy':  # num, registerNum
-            if isDigit(parts[2]):
-                i += 1
-                continue
-            register[parts[2]] = extractVal(parts[1])
+            if not isDigit(parts[2]):
+                register[parts[2]] = extractVal(parts[1])
         elif cmd == 'jnz':  # num, registerNum
-            val1 = extractVal(parts[1])
-            val2 = extractVal(parts[2])
-            if val1 != 0:
-                i += val2
-                continue
-            else:
-                i += 1
+            if extractVal(parts[1]) != 0:
+                i += extractVal(parts[2])
                 continue
         elif cmd == 'inc':
             register[parts[1]] += 1

@@ -52,10 +52,8 @@ def main():
             cmd = toggle(i, parts[0], toggleIndexes)
 
             if cmd == 'cpy':  # num, registerNum
-                if isDigit(parts[2]):
-                    i += 1
-                    continue
-                register[parts[2]] = extractVal(parts[1], register)
+                if not isDigit(parts[2]):
+                    register[parts[2]] = extractVal(parts[1], register)
             elif cmd == 'out':
                 val1 = extractVal(parts[1], register)
                 try:
@@ -64,13 +62,8 @@ def main():
                     j += 1
                     break
             elif cmd == 'jnz':  # num, registerNum
-                val1 = extractVal(parts[1], register)
-                val2 = extractVal(parts[2], register)
-                if val1 != 0:
-                    i += val2
-                    continue
-                else:
-                    i += 1
+                if extractVal(parts[1], register) != 0:
+                    i += extractVal(parts[2], register)
                     continue
             elif cmd == 'inc':
                 register[parts[1]] += 1
