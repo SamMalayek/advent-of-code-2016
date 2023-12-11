@@ -1,41 +1,33 @@
+from collections import deque
+
 
 def main():
     numElves = int(open('day19.txt', 'r').read().rstrip())
 
-    # Implementing a Linked List in Python would be faster in theory, but is much slower in practice.
-    # This is likely due to the underlying C implementation and its optimizations. And it's why the
-    # best of the best use C++ in this niche sub-field of software engineering.
-    elvesToPresents = {num+1: 1 for num in range(numElves)}  # numElf -> numPresents
-    elvesPlacement = [num+1 for num in range(numElves)]  # index (placement at table) -> numElf
+    # Disclaimer: This updated solution was inspired from
+    # https://www.reddit.com/r/adventofcode/comments/5j4lp1/2016_day_19_solutions/dbdf9mn/
+    # I prefer the small modifications in this one.
 
-    curElfPlacement = 0  # index of elvesPlacement
-    while len(elvesPlacement) > 1:
-        oppositeElfPlacement = (curElfPlacement + len(elvesPlacement)//2) % len(elvesPlacement)
+    left = deque()
+    right = deque()
 
-        curElfNum = elvesPlacement[curElfPlacement]
-
-        oppositeElfNum = elvesPlacement[oppositeElfPlacement]
-        elvesToPresents[curElfNum] += elvesToPresents[oppositeElfNum]
-
-        # Remove opposite elf from table
-        elvesPlacement.pop(oppositeElfPlacement)
-        elvesToPresents.pop(oppositeElfNum)
-
-        # By popping to the left of curElfPlacement, our current index for
-        # curElfPlacement is already moved one to the right
-        if oppositeElfPlacement < curElfPlacement and curElfPlacement < len(elvesPlacement):
-            continue
-
-        # (curElfPlacement + 1) % len(elvesPlacement) <-- could create a
-        # situation where curElfPlacement already equals the length
-        # of the newly popped array (decreased in size), then adds
-        # one to increment the index to 1 rather than 0
-        if curElfPlacement >= len(elvesPlacement) - 1:
-            curElfPlacement = 0
+    for i in range(1, numElves + 1):
+        if len(left) < numElves // 2 + 1:  # Left needs to be bigger.
+            left.append(i)  # Example: 1 to 11
         else:
-            curElfPlacement += 1
+            right.append(i)  # Example: 12 to 20
 
-    print(list(elvesToPresents.keys())[0])
+    while right:
+        if len(left) > len(right):  # The middle of the circle is the end of `left` or beginning of `right`.
+            left.pop()
+        else:
+            right.popleft()
+
+        # Rotate the cut in the circle to move 'the middle' in accordance with the problem statement.
+        right.append(left.popleft())
+        left.append(right.popleft())
+
+    print(left[0])
 
 
 if __name__ == "__main__":
